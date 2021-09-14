@@ -15,7 +15,7 @@ html {
     box-sizing: border-box;
     background-color: black;
     text-shadow: 0 0 10px #FF5500, 0 0 10px #FF5500, 0 0 10px #FF5500;
-
+    overflow: hidden;
     filter: blur(0.4px);
     color: rgb(255, 255, 255);
 }
@@ -203,6 +203,7 @@ text-shadow: 0 0 10px #FF5500, 0 0 10px #FF5500;
       border-width: 2px;
       box-shadow: 0 0 10px #FF5500, 0 0 10px #FF5500, 0 0 10px #FF5500;
       opacity: 50%;
+
   }
   @media only screen and (max-width: 601px) {
     html {
