@@ -10,6 +10,7 @@
 <div class="backgroundImg">
     <img class="backgroundImg" src="img/diablobackground.png">
 </div>
+<button id="clickybutton" class="clickybutton"></button>
 <body>
     <div id="preload">
         <img src="img/logo2.jpg" />
@@ -17,6 +18,7 @@
         <img src="img/diablobackground.png" />
         <img src="img/flamecircle1.png" />
 </div>
+
 <div class="quote">Not even death can save you from me...</div>
     <div class="mid-container flex">
         <div class="textbox">Enter character names one by one in the field below and press the add button for each entry<br><br>When done press calculate to receive<p class="chosen">The chosen</p>character name.</div>
@@ -33,6 +35,16 @@
     </div>
     <div class="evil">Evil has survived</div>
 <script>
+    const clkBtn = document.getElementById('clickybutton');
+    clkBtn.onclick = function() {             // color swapper
+    if (clkBtn.style.backgroundColor == "maroon") {
+        clkBtn.style.backgroundColor = "navy";
+    } else {
+        clkBtn.style.backgroundColor = "maroon"
+    }
+    console.log("hi");
+}
+
     const fish = ["Snapper", "Hoki", "Tarakihi", ];
 const addBtn = document.getElementById("addButton");
 const submitBtn = document.getElementById("button2");
@@ -137,6 +149,7 @@ document.getElementById("textInput")
         document.getElementById("addButton").click();
     }
 });
+
 /*submitBtn.onclick = function() {
     let arrayTestContent = arrayTestContentCreator();
     return arrayTestContent;

@@ -188,6 +188,20 @@ body {
 color: #ffffff;
 text-shadow: 0 0 10px #FF5500, 0 0 10px #FF5500;
   }
+  button.clickybutton {
+      width: 15px;
+      height: 15px;        
+      font-size: 0;
+      border-radius: 50%;
+      text-shadow: none;
+      padding: 0;
+      background-color: navy;
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      border-color: -internal-light-dark(rgb(131, 66, 12), rgb(172, 8, 8));
+      border-image: initial;
+  }
   @media only screen and (max-width: 601px) {
     html {
         line-height: 15px;
@@ -200,12 +214,14 @@ text-shadow: 0 0 10px #FF5500, 0 0 10px #FF5500;
         min-height: 0px;
     }
     .backgroundImg img {
-        width: 100px;
+        width: 300px;
+        top: 50px;
     }
     .msgBox .flame {
     
         top: 80px;
         width: 90%;
+
     }
     .quote {
         font-size: 14px;
