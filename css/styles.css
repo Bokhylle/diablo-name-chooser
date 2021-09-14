@@ -22,6 +22,9 @@ body {
     margin: 0;
     height: 100%;
 }
+#preload {
+    display: none;
+}
 .flex {
     display: flex;
     justify-content: center;
@@ -48,6 +51,7 @@ body {
     z-index: -1;
     display: flex;
     justify-content: center;
+    opacity: 90%;
 }
 .backgroundImg img {
     width: 600px;

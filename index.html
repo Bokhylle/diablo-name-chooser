@@ -8,9 +8,15 @@
     <title>D2 Name Picker</title>
 </head>
 <div class="backgroundImg">
-    <img src="img/Diablo_II_Resurrected_KeyArt.png">
+    <img src="img/diablobackground.png">
 </div>
 <body>
+    <div id="preload">
+        <img src="img/logo2.jpg" />
+        <img src="img/pngegg.png" />
+        <img src="img/diablobackground.png" />
+        <img src="img/flamecircle1.png" />
+</div>
 <div class="quote">Not even death can save you from me...</div>
     <div class="mid-container flex">
         <div class="textbox">Enter character names one by one in the field below and press the add button for each entry<br><br>When done press calculate to receive<p class="chosen">The chosen</p>character name.</div>
@@ -49,6 +55,7 @@ function chooseName(value = [ ]) { // name picker from array
     return (Math.floor(Math.random() * ((end) - start))) + start;
 }
 var audio = new Audio('audio/diablo.m4a');
+audio.load()
 let arrayTest = ''
 let arrayTestContent
 let finalArray
