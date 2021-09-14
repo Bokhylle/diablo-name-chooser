@@ -14,17 +14,18 @@
 <div class="quote">Not even death can save you from me...</div>
     <div class="mid-container flex">
         <div class="textbox">Enter character names one by one in the field below and press the add button for each entry<br><br>When done press calculate to receive<p class="chosen">The chosen</p>character name.</div>
-        <div class="flex"><input id="textInput" placeholder="Enter character name here.."></div>
+        <div class="flex"><input id="textInput" placeholder="Enter character name"></div>
         <div class="flex container">
 
                 <button class="button" id="addButton">Add</button>
 
 
-                <button class="button" id="button2">Submit</button>
+                <button class="button" id="button2">Calculate</button>
 
         </div>
 
     </div>
+    <div class="evil">Evil has survived</div>
 <script>
     const fish = ["Snapper", "Hoki", "Tarakihi", ];
 const addBtn = document.getElementById("addButton");
@@ -47,6 +48,7 @@ function chooseName(value = [ ]) { // name picker from array
     }
     return (Math.floor(Math.random() * ((end) - start))) + start;
 }
+var audio = new Audio('audio/diablo.m4a');
 let arrayTest = ''
 let arrayTestContent
 let finalArray
@@ -79,6 +81,7 @@ addBtn.onclick = function() {
 }
 submitBtn.onclick = function() {
 displayMessage()
+audio.play()
 }
 function displayMessage() {
 const html = document.querySelector('html');
@@ -87,12 +90,28 @@ const panel = document.createElement('div');
 panel.setAttribute('class', 'msgBox');
 html.appendChild(panel);
 
-const msg = document.createElement('p');
-msg.textContent = chooseName(finalArray);
-panel.appendChild(msg);
+const logo = document.createElement('img')
+logo.setAttribute('src', '/img/logo2.jpg')
+logo.setAttribute('class', 'logoImg');
+panel.appendChild(logo);
 
-const underline = document.createElement('img')
-panel.appendChild(underline);
+const msg1 = document.createElement('p');
+msg1.textContent = 'Venture forth';
+panel.appendChild(msg1);
+
+const msg3 = document.createElement('p');
+msg3.setAttribute('class', 'heroName');
+msg3.textContent = chooseName(finalArray);
+panel.appendChild(msg3);
+
+const msg2 = document.createElement('p');
+msg2.textContent = 'Hell awaits...';
+panel.appendChild(msg2);
+
+const flame = document.createElement('img')
+flame.setAttribute('src', '/img/flamecircle1.png')
+flame.setAttribute('class', 'flame');
+panel.appendChild(flame);
 
 const closeBtn = document.createElement('img');
 closeBtn.setAttribute('src', '/img/pngegg.png')

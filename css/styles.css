@@ -7,7 +7,7 @@
     src: url(../font/diablo.ttf)
 }
 html {
-    height: 100%;
+    height: 100vh;
     font-family: diablo;
     line-height: 30px;
     font-size: 30px;
@@ -34,9 +34,10 @@ body {
 }
 .quote {
     text-align: center;
-    top: 20px;
+    position: relative;
+    top: 30px;
     margin-top: 10px;
-    opacity: 50%;
+    opacity: 30%;
 }
 .backgroundImg {
     position: fixed;
@@ -64,24 +65,36 @@ body {
 }
 .container {
     width: auto;
+    gap: 40px;
+    margin-top: 20px;
 }
 .textbox {
     text-align: center;
     align-self: center;
     max-width: 800px;
 }
+.evil {
+    bottom: 20%;
+    position: relative;
+    text-align: center;
+    font-size: 40px;
+    opacity: 30%;
+
+}
 .msgBox {
     position: absolute;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     width: 40%;
     height: 700px;
     min-width: 600px;
-    max-width: 800px;
+    max-width: 700px;
     background: rgb(0, 0, 0);
     border-radius: 30px;
     box-shadow: 0 0 10px #FF5500;
@@ -92,21 +105,28 @@ body {
   }
 
   .msgBox p {
-    line-height: 1.5;
+    font-size: 38px;
+    line-height: 0;
     text-align: center;
- 
-    background-position: 25px center;
-    background-repeat: no-repeat;
     font-family: diablo;
     text-shadow: 0 0 10px #FF5500, 0 0 10px #FF5500, 0 0 10px #FF5500;
 
     filter: blur(0.7px);
     color: rgb(255, 255, 255);
   }
+  .msgBox .heroName {
+      font-size: 150%;
+      display: block;
+      width: 90%;
+      margin-top: 40px;
+      margin-bottom: 50px;
+      
+  }
 
-  .msgBox img {
+  .msgBox .closeBtn {
     background: none;
     border: none;
+    opacity: 80%;
     position: absolute;
     top: 10px;
     right: 10px;
@@ -114,4 +134,58 @@ body {
     color: #aaa;
     height: 30px;
     width: 30px;
+  }
+  .msgBox .underline {
+      display: none;
+      max-width: 700px;
+      min-width: 500px;
+      width: 80%;
+      margin-top: -50px;
+  }
+  .msgBox .logoImg {
+      position: absolute;
+  
+      width: 600px;
+      opacity: 6%;
+  }
+  .msgBox .flame {
+      position: absolute;
+      top: 80px;
+      width: 110%;
+      opacity: 70%;
+      z-index: -1;
+  }
+  input {
+      text-decoration: none;
+      background-color: black;
+      font-family: diablo;
+      width: 500px;
+      height: 80px;
+      margin-top: 10px;
+      border-radius: 30px;
+      font-size: 50px;
+      text-align: center;
+      text-shadow: 0 0 10px #FF5500, 0 0 10px #FF5500, 0 0 10px #FF5500;
+      color: white;
+
+  }
+  input::placeholder {
+      font-size: 45px;
+      text-align: center;
+      text-shadow: none;
+  }
+  input:focus-visible {
+      outline: none;
+
+  }
+  button {
+      
+      height: 50px;
+      width: 170px;
+      font-size: 30px;
+      background-color: #1d0303;
+      border-radius: 10px;
+      font-family: diablo;
+color: #ffffff;
+text-shadow: 0 0 10px #FF5500, 0 0 10px #FF5500;
   }
