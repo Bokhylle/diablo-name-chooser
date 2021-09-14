@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>D2 Name Picker</title>
+</head>
+<div class="backgroundImg">
+    <img src="/img/Diablo_II_Resurrected_KeyArt.png">
+</div>
+<body>
+<div class="quote">Not even death can save you from me...</div>
+    <div class="mid-container flex">
+        <div class="textbox">Enter character names one by one in the field below and press the add button for each entry<br><br>When done press calculate to receive<p class="chosen">The chosen</p>character name.</div>
+        <div class="flex"><input id="textInput" placeholder="Enter character name here.."></div>
+        <div class="flex container">
+
+                <button class="button" id="addButton">Add</button>
+
+
+                <button class="button" id="button2">Submit</button>
+
+        </div>
+
+    </div>
+<script>
+    const fish = ["Snapper", "Hoki", "Tarakihi", ];
+const addBtn = document.getElementById("addButton");
+const submitBtn = document.getElementById("button2");
+let inputField = document.querySelector("#textInput");
+function chooseName(value = [ ]) { // name picker from array
+    let nameCount = value.length;
+    let chosenName = value[random(nameCount)];
+    if (chosenName == (undefined || ' ')) {
+        chooseName(value);
+    } else {
+        return chosenName;
+    }
+    
+}
+    function random(start, end) {
+    if (end == undefined) {
+        end = start;
+        start = 0;
+    }
+    return (Math.floor(Math.random() * ((end) - start))) + start;
+}
+let arrayTest = ''
+let arrayTestContent
+let finalArray
+function arrayCreator() {
+    inputField = document.querySelector("#textInput");
+    if (inputField.value != '') {
+        if (arrayTest == '') {
+    arrayTest += `"${inputField.value}"`;
+    inputField.value = ""
+        } else {
+            arrayTest += `, "${inputField.value}"`;
+    inputField.value = ""
+        }
+    } else {
+        console.log("empty input")
+    }
+}
+function arrayTestContentCreator() {
+    arrayTestContent = `[${arrayTest}]`
+    finalArray = JSON.parse(arrayTestContent)
+    return finalArray;
+}
+
+addBtn.onclick = function() {
+    arrayCreator()
+    console.log(arrayTest)
+    arrayTestContentCreator();
+    console.log(arrayTestContent);
+    console.log(finalArray)
+}
+submitBtn.onclick = function() {
+displayMessage()
+}
+function displayMessage() {
+const html = document.querySelector('html');
+
+const panel = document.createElement('div');
+panel.setAttribute('class', 'msgBox');
+html.appendChild(panel);
+
+const msg = document.createElement('p');
+msg.textContent = chooseName(finalArray);
+panel.appendChild(msg);
+
+const underline = document.createElement('img')
+panel.appendChild(underline);
+
+const closeBtn = document.createElement('img');
+closeBtn.setAttribute('src', '/img/pngegg.png')
+closeBtn.setAttribute('class', 'closeBtn');
+closeBtn.textContent = 'x';
+panel.appendChild(closeBtn);
+
+closeBtn.onclick = function() {
+  panel.parentNode.removeChild(panel);
+}
+}
+/*submitBtn.onclick = function() {
+    let arrayTestContent = arrayTestContentCreator();
+    return arrayTestContent;
+    console.log("ahahahah");
+
+    let arrayTest = ''
+let arrayTestContent
+function arrayCreator() {
+    inputField = document.querySelector("#textInput");
+    if (inputField.value != '') {
+    arrayTest += `"${inputField.value}"` + ", ";
+    inputField.value = ""
+    } else {
+        console.log("empty input")
+    }
+}
+} */
+</script>
+</body>
+</html>
