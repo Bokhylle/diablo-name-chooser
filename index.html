@@ -36,6 +36,11 @@
 
     </div>
     <div class="evil">Evil has survived</div>
+    <div class="videobot">
+        <video class="video hidden" width="100%" autoplay loop>
+            <source src="./vid/fire.webm" type="video/webm">
+        </video>
+    </div>
 <script>
     const body = document.querySelector('body');
     const html = document.querySelector('html');
@@ -46,6 +51,7 @@
     const lightScreen = document.createElement('div');
     const lightScreen2 = document.createElement('div');
     
+    var flamevid = document.querySelector('.video');
     var audio = new Audio('audio/diablo-revised.mp3');
     audio.load()
     var quake = new Audio('audio/quake.mp3');
@@ -77,6 +83,7 @@ function displayTimer() {
     midContainer.classList.remove('flex');
     timerActual.classList.remove('hidden');
     lightScreen2.addEventListener('animationend', function() {lightScreen2.classList.add('hidden')})
+    flamevid.classList.remove('hidden');
 
 
 }

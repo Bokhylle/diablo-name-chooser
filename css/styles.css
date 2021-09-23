@@ -64,6 +64,21 @@ body {
     animation-iteration-count: 3;
     animation-duration: 1s;
 }
+.videobot {
+    position: absolute;
+    bottom: 0;
+    width: 100%
+}
+.video {
+    max-width: 1700px;
+    position: relative;
+    display: block;
+    right: 0;
+    left: 0;
+    margin: auto;
+    border-top-right-radius: 700px;
+    border-top-left-radius: 700px;
+}
 .whiteout {
     overflow: hidden;
     height: 100%;
@@ -270,6 +285,12 @@ text-shadow: 0 0 10px #FF5500, 0 0 10px #FF5500;
       opacity: 50%;
 
   }
+  @media only screen and (max-width: 1600px) {
+    .video {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+  }
   @media only screen and (max-width: 601px) {
     html {
         line-height: 15px;
@@ -277,6 +298,9 @@ text-shadow: 0 0 10px #FF5500, 0 0 10px #FF5500;
     }
     #timer {
         font-size: 60px;
+    }
+    .video {
+        border-top-left-radius: 0;
     }
     .msgBox {
         width: 300px;
