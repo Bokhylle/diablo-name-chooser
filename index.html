@@ -21,9 +21,10 @@
 </div>
 
 <div class="quote">Not even death can save you from me...</div>
+<div id='timer' class="hidden">Hello</div>
     <div class="mid-container flex">
         <div class="textbox">Enter character names one by one in the field below and press the add button for each entry<br><br>When done press calculate to receive<p class="chosen">The chosen</p>character name.</div>
-        <div class="flex"><input id="textInput" placeholder="Enter character name"></div>
+        <div class="flex"><input id="textInput" placeholder="Enter character name" maxlength="12"></div>
         <div class="flex container">
 
                 <button class="button" id="addButton">Add</button>
@@ -36,14 +37,57 @@
     </div>
     <div class="evil">Evil has survived</div>
 <script>
+    const body = document.querySelector('body');
+    const html = document.querySelector('html');
+    const timerActual = document.getElementById('timer');
+    const midContainer = document.querySelector('.mid-container');
+    const audios = document.querySelectorAll('Audio');
+    
+    const lightScreen = document.createElement('div');
+    const lightScreen2 = document.createElement('div');
+    
+    var audio = new Audio('audio/diablo-revised.mp3');
+    audio.load()
+    var quake = new Audio('audio/quake.mp3');
+    var rubble = new Audio('audio/rubbleend.mp3');
+    var quakeFull = new Audio('audio/quakefull.mp3');
+    quake.load();
+    rubble.load();
+    quakeFull.load();
+
+    let clickAmount = 0
     const clkBtn = document.getElementById('clickybutton');
     clkBtn.onclick = function() {             // color swapper
-    if (clkBtn.style.backgroundColor == "maroon") {
+        if (clickAmount > 49) {
+            return addTimer()
+        }
+        if (clkBtn.style.backgroundColor == "maroon") {
         clkBtn.style.backgroundColor = "navy";
+        clickAmount++
     } else {
         clkBtn.style.backgroundColor = "maroon"
+        clickAmount++
     }
     console.log("hi");
+}
+function displayTimer() {
+    lightScreen2.classList.add('whitein');
+    body.appendChild(lightScreen2)
+    midContainer.classList.add('hidden');
+    midContainer.classList.remove('flex');
+    timerActual.classList.remove('hidden');
+    lightScreen2.addEventListener('animationend', function() {lightScreen2.classList.add('hidden')})
+
+
+}
+function addTimer() {
+    quake.addEventListener('ended', function(){displayTimer()})
+lightScreen.classList.add('whiteout');
+midContainer.appendChild(lightScreen);
+html.classList.add('shake');
+quake.play()
+quakeFull.play()
+//audios.forEach(Audio => Audio.addEventListener('ended', displayTimer))
 }
 
     const fish = ["Snapper", "Hoki", "Tarakihi", ];
@@ -67,8 +111,8 @@ function chooseName(value = [ ]) { // name picker from array
     }
     return (Math.floor(Math.random() * ((end) - start))) + start;
 }
-var audio = new Audio('audio/diablo.m4a');
-audio.load()
+
+
 let arrayTest = ''
 let arrayTestContent
 let finalArray
@@ -150,6 +194,18 @@ document.getElementById("textInput")
         document.getElementById("addButton").click();
     }
 });
+let countdownDate = new Date(Date.UTC(2021, 8, 23, 21, 0, 0))
+let xyz = setInterval(function() {
+    let currentTime = new Date(Date.now())
+    let distance = countdownDate - currentTime;
+    let days = Math.floor(distance / (1000 * 60 * 60 * 24))
+    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000); 
+
+    document.getElementById('timer').innerHTML = hours + 'h ' + minutes + 'm ' + seconds + 's ';
+}, 1000)
+
 
 /*submitBtn.onclick = function() {
     let arrayTestContent = arrayTestContentCreator();

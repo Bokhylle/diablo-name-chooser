@@ -6,9 +6,34 @@
     font-family: diablo;
     src: url(../font/diablo.ttf)
 }
-
+@keyframes whiteout {
+    0%      {opacity: 0%}
+    100%    {opacity: 100%}
+    
+}
+@keyframes whitein {
+    0%      {opacity: 100%}
+    100%    {opacity: 0%}
+}
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-10px, 0, 2px);
+    }
+    
+    20%, 80% {
+      transform: translate3d(1px, 8px, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 9px, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(10px, 0, 0);
+    }
+  }
 html {
-    height: 100vh;
+    height: 100%;
     font-family: diablo;
     line-height: 30px;
     font-size: 30px;
@@ -24,6 +49,46 @@ body {
     height: 100%;
 }
 #preload {
+    display: none;
+}
+#timer {
+    font-size: 100px;
+    text-align: center;
+    position: absolute;
+    inset: 50% 0 0 0;
+    margin: auto;
+
+}
+.shake {
+    animation: shake;
+    animation-iteration-count: 3;
+    animation-duration: 1s;
+}
+.whiteout {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    z-index: 2;
+    position: absolute;
+
+    animation: whiteout;
+    animation-duration: 3s;
+  /*  opacity: 50%;
+    */
+}
+.whitein {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    z-index: 2;
+    position: absolute;
+
+    animation: whitein;
+    animation-duration: 2s;
+}
+.hidden {
     display: none;
 }
 .flex {
@@ -209,6 +274,9 @@ text-shadow: 0 0 10px #FF5500, 0 0 10px #FF5500;
     html {
         line-height: 15px;
         font-size: 14px;
+    }
+    #timer {
+        font-size: 60px;
     }
     .msgBox {
         width: 300px;
